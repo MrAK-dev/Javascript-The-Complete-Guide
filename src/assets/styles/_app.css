@@ -121,3 +121,9 @@ button:disabled:active {
     width: 30rem;
   }
 }
+
+#map ul,
+#map .ol-rotate,
+#map .ol-attribution {
+  display: none;
+}

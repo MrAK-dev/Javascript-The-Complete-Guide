@@ -36,6 +36,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src', 'index.html'),
       chunks: ['sharePlace'],
+      filename: 'index.html',
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src', 'myplace', 'index.html'),
