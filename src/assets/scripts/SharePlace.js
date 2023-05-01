@@ -42,13 +42,29 @@ class PlaceFinder {
     } else {
       this.map = new Map(coordinates);
     }
-    this.shareBtn.disabled = false;
-    const sharedLinkInputElement = document.getElementById('share-link');
-    sharedLinkInputElement.value = `${
-      location.origin
-    }/myplace?address=${encodeURI(address)}&lat=${coordinates.lat}&lng=${
-      coordinates.lng
-    }`;
+    fetch(
+      'https://simple-backend-js-complete-guide.onrender.com/add-location',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          address,
+          lat: coordinates.lat,
+          lng: coordinates.lng,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        const locationId = data.locId;
+        this.shareBtn.disabled = false;
+        const sharedLinkInputElement = document.getElementById('share-link');
+        sharedLinkInputElement.value = `${location.origin}/myplace?location=${locationId}`;
+      });
   }
 
   locateUserHandler() {
