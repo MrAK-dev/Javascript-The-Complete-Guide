@@ -50,24 +50,25 @@ router.post('/add-location', (req, res, next) => {
 
 router.get('/location/:lid', (req, res, next) => {
   const locationId = req.params.lid;
-
+  if (locationId.length < 24) {
+    return res.status(400).json({ message: 'Invalid id' });
+  }
   async function main() {
     await client.connect();
 
     const db = client.db('locationsJSCompleteGuide');
     const collection = db.collection('user-locations');
-
-    const filteredLocationResult = await collection.findOne({
-      _id: new ObjectId(locationId),
-    });
-
-    if (!filteredLocationResult) {
-      return res.status(404).json({ message: 'Not found!' });
+    try {
+      const filteredLocationResult = await collection.findOne({
+        _id: new ObjectId(locationId),
+      });
+      res.json({
+        address: filteredLocationResult.address,
+        coordinates: filteredLocationResult.coords,
+      });
+    } catch (error) {
+      return res.status(404).json({ message: 'Not found!', error });
     }
-    res.json({
-      address: filteredLocationResult.address,
-      coordinates: filteredLocationResult.coords,
-    });
 
     return 'done.';
   }
