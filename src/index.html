@@ -4,51 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Share a Place</title>
-    <style></style>
+    <title>JS Testing</title>
   </head>
+
   <body>
-    <div class="img"></div>
-    <template id="modal-template">
-      <div class="backdrop"></div>
-      <div class="modal"></div>
-    </template>
-    <template id="loading-modal-content">
-      <div class="modal__content centered">
-        <div class="lds-dual-ring"></div>
+    <section class="control-panel">
+      <div class="input-container">
+        <label for="name">Name</label>
+        <input type="text" id="name" />
       </div>
-    </template>
-
-    <header>
-      <h1>Share a Place!</h1>
-    </header>
-
-    <section id="selected-place">
-      <div id="map">
-        <p>
-          You haven't selected any place yet. Please enter an address or locate
-          yourself!
-        </p>
+      <div class="input-container">
+        <label for="age">Age</label>
+        <input type="number" id="age" />
       </div>
+      <button id="btnAddUser" class="button">Add User</button>
     </section>
-
-    <section id="share-controls">
-      <input
-        id="share-link"
-        type="text"
-        readonly
-        value="Select a place to get a sharable link."
-      />
-      <button id="share-btn" disabled>Share Place</button>
-    </section>
-
-    <section id="place-data">
-      <form>
-        <label for="address">Address</label>
-        <input type="text" />
-        <button type="submit">Find Place</button>
-      </form>
-      <button id="locate-btn">Get Current Location</button>
+    <hr />
+    <section class="user-output">
+      <ul class="user-list"></ul>
     </section>
   </body>
 </html>
