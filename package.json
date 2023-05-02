@@ -1,29 +1,21 @@
 {
-  "name": "max-javascript-the-complete-guide",
+  "name": "my-place",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "set NODE_ENV=development&&webpack serve",
     "build:dev": "set NODE_ENV=development&&webpack",
-    "build:prod": "set NODE_ENV=production&&webpack",
-    "clear": "rd /s /q dist"
+    "build:prod": "set NODE_ENV=production&&webpack"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MrAK-dev/Javascript-The-Complete-Guide.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MrAK-dev/Javascript-The-Complete-Guide/issues"
-  },
-  "homepage": "https://github.com/MrAK-dev/Javascript-The-Complete-Guide#readme",
+  "browserslist": "> 0.5%",
   "devDependencies": {
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
     "babel-loader": "^9.1.2",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.3",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.1",
@@ -40,7 +32,6 @@
     "webpack-dev-server": "^4.13.3"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.12.1",
-    "ol": "^7.3.0"
+    "@babel/polyfill": "^7.12.1"
   }
 }
